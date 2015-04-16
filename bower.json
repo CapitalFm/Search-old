@@ -1,0 +1,21 @@
+{
+  "name": "Capital Search",
+  "version": "1.0.0",
+  "authors": [
+    "Ben <ben@coterie.co.ke>"
+  ],
+  "description": "Capital FM Search",
+  "main": "Gruntfile,js",
+  "license": "MIT",
+  "homepage": "http://www.capitalfm.co.ke/search",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4"
+  }
+}
