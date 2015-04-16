@@ -12,23 +12,17 @@ module.exports = function(grunt) {
     banner: '/*!\n' +
             ' * Bootstrap v<%= bspkg.version %> (<%= bspkg.homepage %>)\n' +
             ' * Copyright 2011-<%= grunt.template.today("yyyy") %> <%= bspkg.author %>\n' +
-            ' * Licensed under <%= bspkg.license.type %> (<%= bspkg.license.url %>)\n' +
-			' * Modified for Capital Home \n' +
+            ' * Licensed under <%= bspkg.license.type %> (<%= bspkg.license.url %>)' +
+			' * Modified for Capital Search \n' +
 			' * Author Ben <ben@coterie.co.ke> \n' +
-			' * Last edit <%= grunt.template.today("dd-mm-yyyy") %>\n' +
+			' * Modified <%= grunt.template.today("dd-mm-yyyy") %>\n' +
             ' */\n',
 	cfmbanner: '/*!\n' +
             ' * Capital Group Limited (http://www.capitalfm.co.ke)\n' +
             ' * Copyright 1996 - <%= grunt.template.today("yyyy") %>\n' +
 			' * Author Ben <ben@coterie.co.ke> \n' +
-			' * Last edit <%= grunt.template.today("dddd, mmmm dS, yyyy, h:MM:ss TT") %>\n' +
+			' * Modified <%= grunt.template.today("dddd, mmmm dS, yyyy, h:MM:ss TT") %>' +
             ' */\n',
-	scriptbanner: '/**\n' +
-            ' * Capital Group Limited (http://www.capitalfm.co.ke)\n' +
-            ' * Copyright 1996 - <%= grunt.template.today("yyyy") %>\n' +
-			' * Author Ben <ben@coterie.co.ke> \n' +
-			' * Modified <%= grunt.template.today("dddd, mmmm dS, yyyy, h:MM:ss TT") %>\n' +
-            ' */',
     less: {
       compileCore: {
         options: {
@@ -155,12 +149,12 @@ module.exports = function(grunt) {
 	  main: {
 		files: [
 		  // includes files within path 
-		  {expand: true, src: ['css/*','fonts/*','lib/**','inc/**','page-templates/**','templates/**','languages/*','images/**','js/*.js'], dest: '../cdmhome/', filter: 'isFile'},
+		  {expand: true, src: ['css/*','fonts/*','lib/**','inc/**','page-templates/**','templates/**','languages/*','images/**','js/*.js'], dest: '../cdmsearch/', filter: 'isFile'},
 	 
 		  // includes files within path and its sub-directories 
-		  {expand: true, src: ['./*.php','./*.png','./*.css'], dest: '../cdmhome/', filter:'isFile'},
+		  {expand: true, src: ['./*.php','./*.png','./*.css'], dest: '../cdmsearch/', filter:'isFile'},
 		  
-		  {expand: true, src: ['dist/*.js'], flatten: true, dest: '../cdmhome/js/', filter:'isFile'},
+		  {expand: true, src: ['dist/*.js'], flatten: true, dest: '../cdmsearch/js/', filter:'isFile'},
 		  {expand: true, src: ['dist/*.js'], flatten: true, dest: 'js/', filter:'isFile'},
 	 
 		  // makes all src relative to cwd 
@@ -231,7 +225,7 @@ module.exports = function(grunt) {
 	  {
 	 	options: {
           paths: ['src'],
-		  namespaces: ['cfm.init'], // namespaces  cfm.init admin.init
+		  namespaces: ['search.init'], // namespaces  cfm.init admin.init
         },
 		// [REQUIRED] paths to be traversed to build the dependencies 
 		src: ['src','E:/tools/google/closure/library/closure/goog','E:/tools/google/closure/library/lib', 'E:/tools/google/closure/library/third_party'],
@@ -270,8 +264,6 @@ module.exports = function(grunt) {
   grunt.registerTask('themify', ['copy']);
   
   grunt.registerTask('compile-js', ['closureBuilder:shrink','usebanner:script','copy']);
-  
-  grunt.registerTask('compile-adminjs', ['closureBuilder:shrinkAdmin','usebanner:scriptAdmin','copy']);
   
  // grunt.registerTask('watch', ['watch']);
 
