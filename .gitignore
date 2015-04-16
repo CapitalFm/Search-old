@@ -4,5 +4,6 @@ dist
 bower_components
 node_modules
 npm-debug.log
-angular.min.js
-
+js/angular.min.js
+less
+*.php
