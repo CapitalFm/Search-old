@@ -1,0 +1,156 @@
+/* CSS Document */
+@import "../../less/variables.less";
+@import "closure-admin.less";
+
+@dashboard-width-full:200px;
+@dashboard-width-small:50px;
+
+.cdm {
+	//@import (less) url( '../bootstrap.css' );
+}
+
+.color-palette-holder
+{
+	background-color:#FFF;
+	position:absolute;
+	outline:0;
+    visibility:hidden;
+	width: 442px;
+	height: 276px;
+	z-index:10;
+	bottom:0;
+}
+#page-wrapper
+{
+	@import (less) url( '../bootstrap.css' );
+	padding-right:10px;
+	.navigation
+	{
+		margin-bottom:10px;
+	}
+	.nav-tabs
+	{
+		a
+		{
+			color:#333;
+			font-size:16px;
+		}
+	}
+	
+	.color-picker-btn
+	{
+		box-shadow: 0px 0px 2px 1px rgba(0,0,0,.1);
+		border-width:3px;
+	}
+	
+}
+#rb-preview
+{
+	.rb-preview
+	{
+		height:700px;
+		width:100%;
+		position:relative;
+		background: url(../images/admin/overlaybg.png);
+		background-size: 100% auto;
+		background-repeat: no-repeat;
+		
+		.overlay
+		{
+			position:absolute;
+			top:0;
+			bottom:0;
+			left:0;
+			right:0;
+			background-color: rgba(0,0,0,.5);
+			
+			.dialog
+			{
+				background-color: #fff;
+				background-position: 0 0;
+				background-repeat: no-repeat;
+				border: solid 5px #FFF;
+				border-radius: 5px;
+				box-shadow: 0 0 5px 5px rgba(0,0,0,.7);
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				width: 500px;
+				max-width:100%;
+				min-height: 300px;
+				margin-top: -200px;
+				margin-left: -250px;
+				z-index: 101;
+			}
+		}
+	}
+}
+.cdm-dashboard
+{
+	position:relative;
+	padding-left:@dashboard-width-small;
+	padding-right:20px;
+	min-height:200;
+	@media (min-width: @grid-float-breakpoint) {	
+		padding-left:@dashboard-width-full;
+	}
+}
+.cdm-dashboard .menu
+{
+	position:absolute;
+	left:0;
+	top:0;
+	padding-top:0;
+	width:(@dashboard-width-small + 1);
+	@media (min-width: @grid-float-breakpoint) {	
+		width:(@dashboard-width-full + 1);
+	}
+}
+.cdm-dashboard .settings
+{
+	background-color:#FFF;
+	border: 1px solid #ddd;
+	min-height:300px;
+	padding:5px 20px 20px;
+}
+.cdm-dashboard .list-group-item:first-child
+{
+	border-top-right-radius: 0;
+}
+.cdm-dashboard .list-group-item:last-child
+{
+	border-bottom-right-radius: 0;
+}
+.cdm-dashboard h4
+{
+	border-bottom: 1px solid #ddd;
+	margin-top:0;
+	padding-bottom:5px;
+}
+.cdm-dashboard #contact-map
+{
+	background-color:#E6F2E3;
+	width:100%;
+	min-height:200px;
+}
+
+.cdm-dashboard .social-links .form-group
+{
+	padding-left:30px;
+	position:relative;
+}
+
+.cdm-dashboard .social-links .form-group label
+{
+	position:absolute;
+	left:5px;
+	top:50%;
+	margin-top:-8px;
+	font-size:18px;
+}
+
+.cdm-dashboard .bg-danger
+{
+	padding:5px;
+	margin:5px 0;
+}

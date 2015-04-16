@@ -1,0 +1,582 @@
+/**
+ * Capital FM Theme
+ * This defines the layout for the header and footer and general outlook.
+ * Site specific tweaking for the content area is included in a different less file
+ */
+
+@font-face
+{
+	font-family: freeroad;
+	src: url("../fonts/Freeroad.eot") /* EOT file for IE *'/
+}
+@font-face
+{
+	font-family: freeroad;
+	src: url("../fonts/Freeroad.ttf") /* TTF file for CSS3 browsers */
+}
+
+.fa()
+{
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@max-page-width : 1000px;
+
+@import "../../less/variables.less";
+@import "../../less/mixins.less";
+
+@import "wordpress.less";
+@import "closure.less";
+
+body
+{
+	background-color:#E2E2E2;
+	padding-top:40px;
+	&.home
+	{
+		padding-top:40px;
+	}
+}
+.sc
+{
+	max-width:@max-page-width;
+	margin:0 auto;
+	.sc-content
+	{
+		padding:10px;
+		background-color:#FFF;
+		@media (max-width: @grid-float-breakpoint)
+		{
+			padding:0;
+		}
+	}
+}
+.map
+{
+	background-color:#E1E1E1;
+}
+#logo
+{
+	display:block;
+	@media (max-width: @grid-float-breakpoint)
+	{
+		padding:10px;
+	}
+}
+#masthead-mask
+{
+	height:100px;
+	@media (max-width: @grid-float-breakpoint)
+	{
+		height:80px;
+	}
+	-webkit-transition: all .3s ease-in-out;
+	 -moz-transition: all .3s ease-in-out;
+	 -o-transition: all .3s ease-in-out;
+	 transition: all .3s ease-in-out;
+	&.docked
+	{
+		height:40px;
+	}
+}
+#lh
+{
+	overflow:hidden;
+}
+#nav-logo
+{
+	width:0;
+	overflow:hidden;
+	padding:10px 0;
+}
+#masthead
+{
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	z-index:2;
+	.sc,
+	.sc-content
+	{
+		-webkit-transition: all .3s ease-out;
+		 -moz-transition: all .3s ease-ut;
+		 -o-transition: all .3s ease-ut;
+		 transition: all .3s ease-out;
+	}
+	.navbar-brand
+	{
+		.logo
+		{
+			//-webkit-transform: scale(0.6);
+			//-moz-transform: scale(0.6);
+			//-ms-transform: scale(0.6);
+			//-o-transform: scale(0.6);
+			//transform: scale(0.6);
+		}
+	}
+}
+.logo
+{
+	background-image: url(../images/cfmsprite.png);
+	background-repeat: no-repeat;
+	display:block;
+	width:250px;
+	height:41px;
+	
+	.small()
+	{
+		background-position:0 -200px;
+		width:150px;
+		height:25px;
+	}
+	
+	&.small
+	{
+		.small();
+	}
+	@media (max-width: @grid-float-breakpoint)
+	{
+		.small();
+	}
+}
+.page,
+.error404
+{
+	.advertisement
+	{
+		display:none;
+	}
+}
+.error404
+{
+	.page-title
+	{
+		text-align:center;
+	}
+	.oopsy
+	{
+		text-align:center;
+		a
+		{
+			display:block;
+			background-color:#000;
+			color:#FFF;
+			border-radius: 25px;
+			padding: 13px;
+			font-size: 18px;
+			font-weight: bold;
+			margin: 10px 0;
+			text-align: center;
+			text-decoration:none;
+			&:hover
+			{
+				background-color:#DD1B1C;
+			}
+		}
+		.or
+		{
+			line-height: 120px;
+			height: 120px;
+			top: -30px;
+			text-align: center;
+			font-weight: bold;
+			font-size: 24px;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			position: relative;
+			&>div
+			{
+				color: #000000;
+				line-height: 120px;
+				height: 120px;
+				z-index: 3;
+				display: block;
+				&>div
+				{
+					background-color: #FFFFFF;
+					position: relative;
+					z-index: 3;
+					padding: 10px 0;
+					display:inline-block;				
+				}
+				&::after
+				{
+					position: absolute;
+					content: 'v';
+					display: block;
+					color: #FFFFFF;
+					width: 1px;
+					left: 50%;
+					top: 0;
+					bottom: 0;
+					background-color: #000;
+					z-index: 1;
+				}
+			}
+		}
+	}
+}
+.advertisement
+{
+	background-color:#FFF;
+	text-align:center;
+	padding:10px 0;
+	position:relative;
+	//-webkit-box-shadow: 0px 0px 3px -1px rgba(0,0,0,0.75);
+	//-moz-box-shadow: 0px 0px 3px -1px rgba(0,0,0,0.75);
+	//box-shadow: 0px 0px 3px -1px rgba(0,0,0,0.75);
+	
+	iframe
+	{
+		background-color:#FBFBFB;
+	}
+	
+	&:after
+	{
+		content:'\0061\0064\0076\0065\0072\0074\0069\0073\0065\006D\0065\006E\0074';
+		color:#FFF;
+		font-size:10px;
+		position:absolute;
+		bottom:2px;
+		right:5px;
+		text-shadow:1px 1px 1px #000;
+	}
+	
+	
+	&>div
+	{
+		display:inline-block;
+	}
+	//prevent advertisements from going beyond the parent element's boundaries
+	*
+	{
+		max-width:100%;
+	}
+}
+.inner-side-ad
+{
+	.advertisement
+	{
+		padding-top:0;
+	}
+}
+#masthead
+{
+	background-color:#DD1B1C;
+	background-image: url(../images/dot-world.png);
+	background-repeat: no-repeat;
+	background-position: 50% 0px;
+	@media (max-width: @grid-float-breakpoint)
+	{
+		background-position: 100% 100%;
+	}
+	.sc-content
+	{
+		background-color:transparent;
+	}
+}
+#colophon
+{
+	background-color:#191B1B;
+	color:#FFF;
+	min-height:100px;
+	.bottom
+	{
+		background-color:#000;
+		min-height:20px;
+	}
+	.site-map
+	{
+		h3
+		{
+			margin:0 0;
+			color:#FF0;
+			font-size:14px;
+			font-weight:bold;
+			text-transform:uppercase;
+		}
+		ul
+		{
+			padding:0;
+			margin-bottom:10px;
+			list-style-position:inside;
+			list-style:none;
+		}
+		a
+		{
+			color:#FFF;
+			font-size:12px;
+			&:hover
+			{
+				.fa
+				{
+					text-decoration:none;
+				}
+			}
+		}
+		.sc-content
+		{
+			background-color:transparent;
+			@media (max-width: @grid-float-breakpoint)
+			{
+				padding:10px;
+			}
+		}
+		.fa
+		{
+			font-size:18px;
+		}
+	}
+	.copyright
+	{
+		padding:10px 0 2px;
+		&,
+		a
+		{
+			font-size:11px;
+			font-weight:bold;
+			color:#999;
+		}
+		a
+		{
+			&:hover
+			{
+				color:#FFF;
+			}
+		}
+		@media (max-width: @grid-float-breakpoint)
+		{
+			.sc
+			{
+				padding:10px;
+			}
+		}
+	}
+	.to-top
+	{
+		border-bottom: #686868 solid 1px;
+		text-align:right;
+		text-transform:uppercase;
+		font-size:12px;
+		a
+		{
+			color:#FFF;
+			display:inline-block;
+			padding:5px 10px;
+			.fa
+			{
+				font-size:18px;
+			}
+		}
+	}
+	.useful-links
+	{
+		display:none;
+		ul
+		{
+			.clearfix();
+			list-style:none;
+			list-style-position:inside;
+		}
+		@media (min-width: @grid-float-breakpoint)
+		{
+			display:block;
+			li
+			{
+				float:left;
+				a
+				{
+					display:block;
+					padding:0 5px;
+				}
+			}
+		}
+	}
+}
+#main-content
+{
+	position:relative;
+	.page-banner
+	{
+		background-color:#FFF;
+		position:relative;
+		//margin-left:-@gutter-width;
+		//margin-right:-@gutter-width;
+		img
+		{
+			width:100%;
+		}
+		
+	}
+}
+#content
+{
+	@gutter-width:10px;
+	
+	.SectionTitle()
+	{
+		font-weight:bold;
+		font-size:16px;
+		text-transform:uppercase;
+		border-bottom: solid 1px #CCCCCC;
+		padding-bottom:5px;
+	}
+	.ulreset()
+	{
+		list-style:none;
+		list-style-position:inside;
+		padding:0;
+	}
+	img
+	{
+		max-width:100%;
+		height:auto;
+	}
+	background-color:#FFF;
+	padding:@gutter-width;
+	position:relative;
+	&.page-content
+	{
+		h1,h2
+		{
+			.SectionTitle();
+		}
+	}
+	.share-page,
+	.contact-info
+	{
+		ul
+		{
+			.ulreset();
+			.clearfix();
+			li
+			{
+				margin-right:10px;
+				@media (min-width: @grid-float-breakpoint)
+				{
+					float:left;
+				}
+			}
+		}
+	}
+	.services,
+	.contact-info
+	{
+		ul
+		{
+			.ulreset();
+		}
+		.details
+		{
+			li
+			{
+				padding-left:25px;
+				position:relative;
+				&:before
+				{
+					.fa();
+					color:#DD1B1C;
+					font-size:10px;
+					content: "\f0c8";
+					position:absolute;
+					left:10px;
+					top:5px;
+				}
+			}
+		}
+		
+		.online
+		{
+			li
+			{
+				margin-bottom:10px;
+				a
+				{
+					color:#000;
+					font-weight:bold;
+					position:relative;
+					display:block;
+					text-decoration:none;
+					padding-left:30px;
+					line-height:25px;
+					&:hover
+					{
+						color:#DD1B1C;
+						&:before
+						{
+							background-color:#DD1B1C;
+						}
+					}
+					&:before
+					{
+						.fa();
+						position:absolute;
+						left:0;
+						top:0;
+						color:#FFF;
+						font-size:16px;
+						width:25px;
+						height:25px;
+						line-height:25px;
+						background-color:#000;
+						border-radius:3px;
+						text-align:center;
+					}
+				}
+			}
+			.facebook
+			{
+				a:before
+				{					
+					content: "\f09a";					
+				}
+			}
+			.twitter
+			{
+				a:before
+				{					
+					content: "\f099";					
+				}
+			}
+			.instagram
+			{
+				a:before
+				{					
+					content: "\f16d";					
+				}
+			}
+			.twitter
+			{
+				a:before
+				{					
+					content: "\f099";					
+				}
+			}
+			.youtube
+			{
+				a:before
+				{					
+					content: "\f167";					
+				}
+			}
+			.google
+			{
+				a:before
+				{					
+					content: "\f0d5";				
+				}
+			}
+		}
+	}
+	
+}
+
+#content
+{
+	@import (less) url( 'search.css' );
+}
