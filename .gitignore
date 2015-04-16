@@ -7,3 +7,7 @@ npm-debug.log
 js/angular.min.js
 less
 *.php
+search
+css/*.css
+css/*.map
+fonts
