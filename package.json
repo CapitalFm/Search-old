@@ -1,0 +1,11 @@
+{
+  "name": "cdmsearch-dist",
+  "version": "1.0.0",
+  "description": "Capital FM Search",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
